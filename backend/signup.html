@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Signup PAGE</h1>
+        <input type="text" id="email" placeholder="Enter Your email...">
+        <input type="password" id="pass" placeholder="Enter Your pass...">
+        <input type="text" id="city" placeholder="Enter Your city...">
+        <input type="text" id="gender"   placeholder="gender">
+        <input type="text" id="age" placeholder="age">
+        <input type="text" id="name" placeholder="name">
+        <input type="text" id="married" placeholder="married">
+        
+        <button onclick="onSignup()">Signup</button>
+    </div>
+</body>
+<script>
+    let onSignup=()=>{
+
+        let payload={
+            email:document.getElementById("email").value,
+            password:document.getElementById("pass").value,
+            city:document.getElementById("city").value,
+            gender:document.getElementById("gender").value,
+            age:document.getElementById("age").value,
+            name:document.getElementById("name").value,
+            married:document.getElementById("married").value,
+           
+        }
+      fetch("https://pear-different-colt.cyclic.app//users/register",{
+        method:"POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(payload)
+
+      }).then(res=>res.json())
+      .then(res=>console.log(res))
+      .catch(err=>console.log(err,"hello"))
+    }
+</script>
+</html>

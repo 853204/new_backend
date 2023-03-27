@@ -5,7 +5,7 @@ let {postRouter}=require("./routes/post.router")
 
 let {auth}=require("./middleware/auth.middleware")
 let cors=require("cors")
-require("dotenv")
+require("dotenv").config()
 
 
 let app=express()
